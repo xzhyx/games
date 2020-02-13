@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		    <canvas id="barChart" height="400" width="600" style="margin:50px"> 你的浏览器不支持HTML5 canvas </canvas>
+	</body>
+	<script type="text/javascript">
+		// 声明所需变量
+		var canvas,ctx;
+		// 图表属性
+		var cWidth, cHeight, cMargin, cSpace;
+		var originX, originY;
+		// 获得canvas上下文
+		canvas = document.getElementById("barChart");
+		if(canvas && canvas.getContext){
+		    ctx = canvas.getContext("2d");
+		}
+		 ctx.translate(0.5,0.5);  // 当只绘制1像素的线的时候，坐标点需要偏移，这样才能画出1像素实线
+                ctx.font = "12px Arial";
+                ctx.lineWidth = 1;
+                ctx.fillStyle = "#000";
+                ctx.strokeStyle = "#000";
+                // y轴
+                drawLine(originX, originY, originX, cMargin);
+                // x轴
+                drawLine(originX, originY, originX+cWidth, originY);
+
+                // 绘制标记
+                drawMarkers();
+                ctx.translate(-0.5,-0.5);  // 还原位置
+	</script>
+</html>
