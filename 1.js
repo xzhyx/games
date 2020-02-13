@@ -36,3 +36,6 @@ getFilePath('./3.txt').then(function(data){
          }).then(function(data){
             console.log(data)
          })
+         .catch(function(err){
+             console.log(err.message)
+         })
